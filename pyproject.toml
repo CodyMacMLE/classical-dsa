@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codymacmle_dsa"
+version = "0.0.1"
+authors = [
+  { name="Cody MacDonald", email="codymacdonald.dsml@gmail.com" },
+]
+description = "A personal implementation of classical DSA methods"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/codymacmle/classical-dsa"
+
+[tool.tox]
+env_list = ["pytests", "lint"]
+
+# ---------- tests (pytest) ----------
+[tool.tox.env.pytests]
+description = "Run unit tests with pytest (editable install)"
+package = "editable"                     # install your src/ package in editable mode
+deps = [
+  "pytest>=7",
+  "coverage>=7",
+]
+commands = [
+  ["coverage", "run", "-m", "pytest", "-q"],
+  ["coverage", "report", "-m"],
+]
+
+# ---------- lint (ruff) ----------
+[tool.tox.env.lint]
+description = "Lint with ruff"
+skip_install = true
+deps = ["ruff>=0.5"]
+commands = [
+  ["ruff", "check", "src", "tests"]
+]
+
+# ---------- ruff config (new keys) ----------
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]  # pycodestyle, pyflakes, import sorting
+ignore = ["E501"]         # example: ignore line-length
+
+# ---------- pytest config ----------
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
