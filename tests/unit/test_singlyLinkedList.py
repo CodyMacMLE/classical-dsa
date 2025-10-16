@@ -1,5 +1,12 @@
+# Standard Library Imports
+# (No standard libraries are imported here in this file)
+
+# Third-Party Imports
 import pytest
+
+# Local Application/Library Imports
 from codymacmle_dsa import SinglyLinkedList
+
 
 class TestSinglyLinkedList:
     def test_init(self):
@@ -11,7 +18,7 @@ class TestSinglyLinkedList:
         assert sll1._head is None
 
         assert sll2._head is not None
-        assert sll2._head._data is "Node"
+        assert sll2._head._data == "Node"
         assert sll2._head._next is None
 
         assert sll3._head is not None
@@ -61,7 +68,7 @@ class TestSinglyLinkedList:
         assert sll[2] == "Node 3"
 
         with pytest.raises(IndexError, match="out of bounds"):
-            var = sll[99]
+            sll[999]
 
     def test_pushFront(self):
         sll = SinglyLinkedList()
@@ -227,7 +234,7 @@ class TestSinglyLinkedList:
         assert sll2.middle()._data == "Node 2"
 
         sll3 = SinglyLinkedList()
-        assert sll3.middle() == None
+        assert sll3.middle() is None
 
     def test_find(self):
         sll1 = SinglyLinkedList(["Node 1", "Node 2"])
@@ -239,9 +246,9 @@ class TestSinglyLinkedList:
 
     def test_contains(self):
         sll1 = SinglyLinkedList(["Node 1", "Node 2"])
-        assert sll1.contains("Node 1") == True
-        assert sll1.contains("Node 2") == True
-        assert sll1.contains("Node 3") == False
+        assert sll1.contains("Node 1")
+        assert sll1.contains("Node 2")
+        assert not sll1.contains("Node 3")
 
     def test_reverse(self):
         sll1 = SinglyLinkedList(["Node 1", "Node 2", "Node 3"])
