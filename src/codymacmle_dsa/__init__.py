@@ -1,3 +1,3 @@
-from .example import add_one
+from .SinglyLinkedList import SinglyLinkedList
 
-__all__ = ["add_one"]  # public API
+__all__ = ["SinglyLinkedList"]  # public API
