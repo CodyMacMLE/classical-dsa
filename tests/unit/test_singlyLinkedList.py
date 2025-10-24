@@ -5,7 +5,7 @@
 import pytest
 
 # Local Application/Library Imports
-from codymacmle_dsa import SinglyLinkedList
+from codymacmle_dsa import SinglyLinkedList  # type: ignore
 
 
 class TestSinglyLinkedList:

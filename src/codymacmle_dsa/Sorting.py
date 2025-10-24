@@ -26,7 +26,7 @@ class Sort:
         for i in range(1, length):
             current = arr.pop(i)
             for j in range(i, -1, -1):
-                if j is 0 or current > arr[j-1]:
+                if j == 0 or current > arr[j-1]:
                     arr.insert(j, current)
                     break
 

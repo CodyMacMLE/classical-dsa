@@ -2,10 +2,11 @@
 # (No standard libraries are imported here in this file)
 
 # Third-Party Imports
-import pytest
+# import pytest
 
 # Local Application/Library Imports
-from codymacmle_dsa import Sort # type: ignore
+from codymacmle_dsa import Sort  # type: ignore
+
 
 class TestSort:
     """
